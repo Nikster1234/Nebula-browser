@@ -2,7 +2,7 @@
 
 Nebula is a custom Chromium-based workspace browser shell for Windows, built with Electron.
 
-It is designed as a practical multi-session browser shell rather than a simple Electron starter app. The project focuses on isolated workspaces, a custom in-app browser chrome, download tracking, bookmarks, history, a speed-dial start page, and optional network-level ad blocking.
+It is designed as a practical multi-session browser shell rather than a starter app. The project focuses on isolated workspaces, a custom in-app browser chrome, download tracking, bookmarks, history, a speed-dial start page, and optional network-level ad blocking.
 
 ## Highlights
 
@@ -14,11 +14,83 @@ It is designed as a practical multi-session browser shell rather than a simple E
 - Ghostery-based ad blocking integration
 - Lean mode that hibernates background tabs to reduce memory usage
 - Risky mode guardrails for downloads and external navigation
-- Windows packaging script for desktop builds
+- Windows packaging flow for source-to-build desktop output
 
 ## Why This Project Exists
 
 Nebula is an original browser shell built on top of Electron's Chromium runtime. It is not a wrapper around proprietary Brave, Shift, or Opera GX code. The goal is to explore a more opinionated desktop browser workspace model with clear session isolation and a custom productivity-oriented interface.
+
+## Requirements
+
+- Windows
+- Node.js `20+`
+- npm
+
+## How To Run From Source
+
+Install dependencies:
+
+```powershell
+npm.cmd install
+```
+
+Start Nebula in development mode:
+
+```powershell
+npm.cmd start
+```
+
+You can also use:
+
+```powershell
+npm.cmd run dev
+```
+
+## How To Compile / Build
+
+Build a Windows desktop package from source:
+
+```powershell
+npm.cmd run build:win
+```
+
+This uses `scripts/build-win.js`, which packages the app with `@electron/packager`.
+
+Build output is written to:
+
+```text
+release\
+```
+
+Typical output path:
+
+```text
+release\Nebula-win32-x64\Nebula.exe
+```
+
+If you want to rebuild cleanly, delete the old `release/` folder first and run:
+
+```powershell
+npm.cmd run build:win
+```
+
+## Screenshots
+
+### Main UI
+
+![Nebula main UI](docs/screenshots/main-ui.png)
+
+### Workspace Switching
+
+![Nebula workspaces](docs/screenshots/workspaces.png)
+
+### Create Workspace Flow
+
+![Nebula create workspace](docs/screenshots/create-workspace.png)
+
+### Settings
+
+![Nebula settings](docs/screenshots/settings.png)
 
 ## Project Structure
 
@@ -36,38 +108,6 @@ Nebula is an original browser shell built on top of Electron's Chromium runtime.
   - Start page shortcut management
 - `scripts/build-win.js`
   - Windows packaging script using `@electron/packager`
-
-## Requirements
-
-- Windows
-- Node.js 20+ recommended
-- npm
-
-## Development
-
-Install dependencies:
-
-```powershell
-npm.cmd install
-```
-
-Run the app:
-
-```powershell
-npm.cmd start
-```
-
-Build a Windows package:
-
-```powershell
-npm.cmd run build:win
-```
-
-Build output is written to:
-
-```text
-release/
-```
 
 ## Keyboard Shortcuts
 

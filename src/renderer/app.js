@@ -513,12 +513,12 @@ function renderSettings() {
   elements.compactToggle.checked = state.settings.compactMode;
   elements.performanceToggleButton.classList.toggle('active', state.settings.performanceMode === 'lean');
   elements.performanceToggleButton.title = state.settings.performanceMode === 'lean'
-    ? 'Lean mode is active'
-    : 'Balanced mode is active';
+    ? 'Performance mode: Lean'
+    : 'Performance mode: Balanced';
   elements.riskyModeButton.classList.toggle('active', state.settings.riskyMode);
   elements.riskyModeButton.title = state.settings.riskyMode
-    ? 'Risky site mode is active (Ctrl+Alt+R)'
-    : 'Risky site mode is off (Ctrl+Alt+R)';
+    ? 'Risky site mode: on (Ctrl+Alt+R)'
+    : 'Risky site mode: off (Ctrl+Alt+R)';
 
   elements.accentRow.innerHTML = '';
   for (const color of accentOptions) {
@@ -555,7 +555,7 @@ function renderDrawerState() {
   elements.historyPanel.classList.toggle('hidden', activePanel !== 'history');
   elements.settingsPanel.classList.toggle('hidden', activePanel !== 'settings');
   elements.workspaceCreateForm.classList.toggle('hidden', !(activePanel === 'workspaces' && uiState.creatingWorkspace));
-  elements.newWorkspaceDrawerButton.textContent = uiState.creatingWorkspace ? 'Close' : 'New';
+  elements.newWorkspaceDrawerButton.textContent = uiState.creatingWorkspace ? 'Close' : 'Create';
 
   elements.homeButton.classList.toggle('active', isStartPageUrl(activeTab?.url));
   elements.favoritesToggleButton.classList.toggle('active', activePanel === 'favorites' || savedCurrent);
